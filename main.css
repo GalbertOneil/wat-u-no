@@ -1,0 +1,70 @@
+body{
+   
+}
+.startButton{
+    top: 20%;
+    width: 200px;
+    border-radius: 6px;
+
+}
+#gameName{
+    text-align: center;
+}
+
+
+
+#circle{
+    height: 400px;
+    width: 400px;
+    padding: 10px 10px 10px 10px;
+    background-color: red;
+    border-radius: 50%;
+    margin: 0 auto;
+    /* position: relative; */
+}
+#innerCircle{
+    height: 150px;
+    width: 150px;
+    background-color: blue;
+    border-radius: 50%;
+    position: relative;
+    margin: -280px -308px -40px -75px;
+    top:50%;
+    left:50%;
+}
+
+#squareRight{
+    height: 300px;
+    width: 100px;
+    background-color: brown;
+    margin: -250px 0 40px 0px;
+    margin-left: 394px;
+   
+}
+#squareLeft{
+    height: 300px;
+    width: 100px;
+    background-color: brown;
+    left:50%; 
+    margin-left: 930px;
+    margin-top: -338px;
+    margin-right: 500px;
+    
+    
+
+    
+}
+
+#quescon{
+
+    width: 500px;
+    margin: 100px auto;
+    border: 1px solid;
+    border-radius: 20px;
+    height: 170px;
+    
+}
+
+.submitButton{
+    font-size: 200px;
+}
