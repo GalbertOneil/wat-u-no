@@ -20,7 +20,7 @@ let trivia = [
     {
         q:{
         question:'Which event to we celebrate on July 4th?',
-        answers:['The signing of the Declaration of the Constitution', 'Ratification of the Constitution', 'The crossing of the Delaware River'],
+        answers:['The signing of the Declaration of the Independence', 'Ratification of the Constitution', 'The crossing of the Delaware River'],
         correctAnswer: 'The signing of the Declaration of the Constitution'
         }
     },
@@ -35,7 +35,7 @@ let trivia = [
         q:{
         question:'Who is credited for the original American flag design?',
         answers:['George Washington', 'Abigail Adams', 'Betsy Rose'],
-        correctAnswer:'Betsy Rose'
+        correctAnswer:'Betsy Ross'
         }
     }, 
 
