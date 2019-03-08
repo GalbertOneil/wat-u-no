@@ -1,5 +1,5 @@
 let score = 0;
-
+let winScore = 5;
 
 
 let trivia = [
@@ -13,8 +13,8 @@ let trivia = [
     {
         q:{
         question:'How many states the United States has.?',
-        answers:[51, 54, 50],
-        correctAnswer:50
+        answers:['51', '54', '50'],
+        correctAnswer:'50'
         }
     },
     {
@@ -63,8 +63,8 @@ let trivia = [
     {
         q:{
         question:'What year Pablo Picasso was born?',
-        answers:[1901, 1881, 1895],
-        correctAnswer:1881
+        answers:['1901', '1881', '1895'],
+        correctAnswer:'1881'
         }
     },
     {
@@ -113,8 +113,8 @@ let trivia = [
     {
         q:{
         question:'Javascript files has an extension of?',
-        answers:['.javascript', '.js', '.html'],
-        correctAnswer:'.js'
+        answers:['javascript', 'js', 'html'],
+        correctAnswer:'js'
         }
     },
     {
@@ -153,43 +153,53 @@ let trivia = [
 
 
 const questionForm = document.querySelector('#questionForm');
-const createInputs = () => {
-    for (let i=0; i<trivia.length; i+=1) {
-        const qFormInput = document.createElement('input');
-        qFormInput.id = `answer${i+1}`;
-        qFormInput.type = 'radio';
-        qFormInput.innerHTML = `${trivia[i].answers}`
-        console.log('History: ', trivia[i]);
 
-        questionForm.appendChild(qFormInput)
+
+let removeQuestion = function(){
+    let questionBox = document.querySelector('#questionBox');
+    
+        while(questionBox.firstElementChild){
+            questionBox.removeChild(questionBox.firstElementChild)
+        }
+       
+}
+let winOrLose = function(){
+    if(score === 5){
+        alert('YOU WIN')
+    } else if(score === -3){
+        alert('YOU LOSE SUCKER')
     }
 }
 
 
 const subject = topic => {
+    
     let randomNum = Math.floor(Math.random() * 20);
 
     const questionBox = document.querySelector('#questionBox')
-    let question = document.querySelector('#question');
     
-    question.innerHTML = topic[randomNum].q.question
     const form = document.createElement('form')
     form.id = 'question-form'
 
     let correctAnswer = topic[randomNum].q.correctAnswer
 
+    const h3 = document.createElement('h3');
+    h3.id = 'question';
+    questionBox.appendChild(h3);
+    let question = document.querySelector('#question');
+    question.innerText = topic[randomNum].q.question
+
     for (let i=0; i<3; i+=1) {
         const answers = document.createElement('div');
         let answerValues = `${topic[randomNum].q.answers[i]}`;
-        console.log(`answerValues is ${answerValues}`)
-        
+             
         answers.innerHTML = `<input id=answer${i+1} type="radio" name="choice" value=${answerValues}>${topic[randomNum].q.answers[i]}</input>`
         
         form.appendChild(answers)
     }
     
     const submitButton = document.createElement('input')
-    submitButton.type = 'submit'
+    submitButton.type = 'button'
     submitButton.name = 'submit'
     submitButton.value = 'submit'
     submitButton.className = 'submitButton'
@@ -202,26 +212,39 @@ const subject = topic => {
     function checkAnswer(e){
         e.preventDefault();
         firstWord = correctAnswer.split(' ');
-        
+
         if (a1.checked && a1.value === firstWord[0]) {
-            console.log('a1 value ' + a1.value)
-            console.log('correct answer is ' + firstWord[0])
-            alert('Correct')
-            subject(topic)
-        }  if (a2.checked && a2.value === firstWord[0]){
-            alert('Correct')
-            subject(topic)
-        }  if (a3.checked && a3.value === firstWord[0]){
-            alert('Correct')
-            subject(topic)
+            score+=1
+            alert(`Correct! your score is ${score}`)
+            winOrLose()
+            removeQuestion()
+            subject(trivia)
+        }  else if (a2.checked && a2.value === firstWord[0]){
+            score+=1
+            alert(`Correct! your score is ${score}`)
+            winOrLose()
+            removeQuestion()
+            subject(trivia)
+        } else if (a3.checked && a3.value === firstWord[0]){
+            score+=1
+            alert(`Correct! your score is ${score}`)
+            winOrLose()
+            removeQuestion()
+            subject(trivia)
         } else {
-            alert('Incorrect')
-            subject(topic)
+            score-=1
+            alert(`Incorrect! your score is ${score}`)
+            winOrLose()
+            removeQuestion()
+            subject(trivia)
         }
+        const previousForm = document.getElementById('question-form')
+        previousForm.classList.add('notvisible');
     }
     
 
     let submit = document.querySelector('.submitButton');submit.addEventListener('click', checkAnswer)
+
   
     
 }
