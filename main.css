@@ -1,5 +1,7 @@
 body{
     background-color: #FF9671;
+    display: flex;
+    flex-direction: column;
 }
 
 
@@ -11,12 +13,14 @@ body{
 }
 #gameName{
     text-align: center;
-    transition: all 2s linear 1s;
+    
 
 }
 #gameName:hover .name{
     left: 100%;
+    font-size: 50px;
     background-color: blue;
+    transition: all .5s ease-in-out;
 }
 
 #circle{
@@ -25,7 +29,6 @@ body{
     padding: 10px 10px 10px 10px;
     background-color: red;
     border-radius: 50%;
-  
     margin: 0 auto; 
     position: relative; 
 }
@@ -71,11 +74,7 @@ body{
     border: 1px solid;
     border-radius: 20px;
     height: 200px;
-    /* display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    position: center;
-         */
+    
 }
 
 .submitButton{
@@ -84,7 +83,4 @@ body{
 
 #container{
     grid-column: 2;
-}
-.notvisible{
-    /* display: none; */
 }
