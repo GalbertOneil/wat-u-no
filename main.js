@@ -166,8 +166,10 @@ let removeQuestion = function(){
 let winOrLose = function(){
     if(score === 5){
         alert('YOU WIN!! want to play again?')
+        score = 0;
     } else if(score === -3){
         let lose = window.confirm('YOU LOSE! want to play again? ')
+        score = 0;
     }
 }
 
